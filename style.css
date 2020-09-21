@@ -1,0 +1,171 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+:root {
+	--color-texto-oscuro: hsl(0, 0%, 10%);
+	--color-texto-claro: hsl(0, 0%, 90%);
+
+	--h1-font-size: 2.25rem;
+	--h2-font-size: 1.75rem;
+	--h3-font-size: 1.25rem;
+	--normal-font-size: 1rem;
+	--body-line-height: 1.6;
+
+	--color-bg-primario: hsl(0, 0%, 100%);
+	--color-bg-secundario: hsl(224, 33%, 94%);
+}
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 1.25rem;
+}
+
+body {
+	counter-reset: section;
+	background-color: #e9ecf4;
+	line-height: var(--body-line-height);
+	overflow-x: hidden;
+	position: relative;
+	color: black;
+	font-family: "Montserrat", sans-serif;
+}
+
+h1{
+	font-size: var(--h1-font-size);
+}
+
+h2{
+	font-size: var(--h2-font-size);
+}
+
+h3 {
+	font-size: var(--h3-font-size);
+}
+
+h1,
+h2,
+h3 {
+	font-weight: 200;
+	margin: 0;
+}
+
+h1,
+h2,
+h3,
+p {
+	font-family: "Montserrat", sans-serif;
+	line-height: 1.6;
+}
+
+p {
+	margin-bottom: 0.25em;
+}
+
+.header,
+.contenido,
+.sidebar,
+.widget,
+.footer {
+	padding: 1em;
+	border-radius: 0.25em;
+}
+
+.header,
+.sidebar,
+.widget,
+.footer {
+	color: var(--color-texto-claro);
+}
+
+
+._Next{
+	display: flex;
+	justify-content: center;
+	width:100%;
+	padding:1em 0;
+}
+
+.main-container{
+	max-width: 1200px;
+	width: 90%;
+	display: grid;
+	grid-gap: 1em;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(4, auto);
+	grid-template-areas: 
+		"header header header"
+		"contenido contenido sidebar"
+		"widget_1 widget_2 sidebar"
+		"footer footer footer"
+}
+
+.header{
+	grid-area: header;
+	background-color:hsl(221, 55%, 16%);
+}
+
+.contenido{
+	grid-area: contenido;
+	background-color: var(--color-bg-primario);
+}
+.titulo-principal, .texto{
+	color: var(--color-texto-oscuro);
+}
+.texto{
+	text-align: justify;
+}
+
+.sidebar{
+	grid-area: sidebar;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: hsl(0, 100%, 75%);
+}
+
+.widget{
+	background-color:hsl(220, 70%, 55%);
+	text-align: center;
+}
+
+.widget_1{
+	grid-area: widget_1;
+}
+.widget_2{
+	grid-area: widget_2;
+}
+
+.footer{
+	grid-area: footer;
+	background-color: hsl(221, 77%, 23%);
+	text-align: center;
+}
+
+@media screen and (max-width: 800px){
+	.main-container{
+		grid-template-areas: 
+			"header header header"
+			"contenido contenido contenido"
+			"sidebar sidebar sidebar"
+			"widget_1 widget_1 widget_2"
+			"footer footer footer";
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.main-container {
+		grid-template-areas:
+			"header header header"
+			"contenido contenido contenido"
+			"sidebar sidebar sidebar"
+			"widget_1 widget_1 widget_1"
+			"widget_2 widget_2 widget_2"
+			"footer footer footer";
+	}
+}
